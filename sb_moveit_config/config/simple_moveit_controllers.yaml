@@ -1,0 +1,10 @@
+controller_list:
+  - name: sb_head_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - torso_joint
+      - neck_swivel
+      - head_tilt
+      - head_nod

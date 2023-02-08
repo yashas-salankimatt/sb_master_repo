@@ -1,0 +1,49 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/yashas/Documents/proprio/test_ws/devel/include/**",
+        "/home/yashas/ws_moveit/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/yashas/Documents/proprio/test_ws/src/alfred_ros_pkg/include/**",
+        "/home/yashas/ws_moveit/src/moveit/moveit_planners/chomp/chomp_motion_planner/include/**",
+        "/home/yashas/Documents/proprio/test_ws/src/darknet_ros/darknet_ros/include/**",
+        "/home/yashas/Documents/proprio/test_ws/src/gazebo_ros_pkgs/gazebo_plugins/include/**",
+        "/home/yashas/Documents/proprio/test_ws/src/gazebo_ros_pkgs/gazebo_ros/include/**",
+        "/home/yashas/Documents/proprio/test_ws/src/gazebo_ros_pkgs/gazebo_ros_control/include/**",
+        "/home/yashas/ws_moveit/src/geometric_shapes/include/**",
+        "/home/yashas/Documents/proprio/test_ws/src/gpd_ros/include/**",
+        "/home/yashas/ws_moveit/src/moveit/moveit_planners/chomp/chomp_interface/include/**",
+        "/home/yashas/ws_moveit/src/moveit_resources/prbt_ikfast_manipulator_plugin/include/**",
+        "/home/yashas/ws_moveit/src/moveit/moveit_ros/benchmarks/include/**",
+        "/home/yashas/ws_moveit/src/moveit/moveit_plugins/moveit_ros_control_interface/include/**",
+        "/home/yashas/ws_moveit/src/moveit/moveit_ros/move_group/include/**",
+        "/home/yashas/ws_moveit/src/moveit/moveit_ros/occupancy_map_monitor/include/**",
+        "/home/yashas/ws_moveit/src/moveit/moveit_ros/robot_interaction/include/**",
+        "/home/yashas/ws_moveit/src/moveit/moveit_ros/moveit_servo/include/**",
+        "/home/yashas/ws_moveit/src/moveit/moveit_setup_assistant/include/**",
+        "/home/yashas/ws_moveit/src/moveit/moveit_plugins/moveit_simple_controller_manager/include/**",
+        "/home/yashas/ws_moveit/src/moveit_visual_tools/include/**",
+        "/home/yashas/ws_moveit/src/moveit/moveit_planners/pilz_industrial_motion_planner/include/**",
+        "/home/yashas/ws_moveit/src/moveit/moveit_planners/pilz_industrial_motion_planner_testutils/include/**",
+        "/home/yashas/Documents/proprio/test_ws/src/roboticsgroup_upatras_gazebo_plugins/include/**",
+        "/home/yashas/ws_moveit/src/rviz_visual_tools/include/**",
+        "/home/yashas/ws_moveit/src/srdfdom/include/**",
+        "/home/yashas/Documents/tamu/sb_ros/src/survivorbuddy_ros/include/**",
+        "/home/yashas/Documents/proprio/test_ws/src/xarm_ros/xarm_api/include/**",
+        "/home/yashas/Documents/proprio/test_ws/src/xarm_ros/xarm_controller/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-arm64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

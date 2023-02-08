@@ -1,0 +1,28 @@
+sb_head_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - torso_joint
+    - neck_swivel
+    - head_tilt
+    - head_nod
+  gains:
+    torso_joint:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    neck_swivel:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    head_tilt:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1
+    head_nod:
+      p: 100
+      d: 1
+      i: 1
+      i_clamp: 1

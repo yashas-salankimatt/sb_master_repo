@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: survivorbuddy_ros
+    relative_path: urdf/survivorbuddy.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/survivor_buddy.srdf
+  CONFIG:
+    author_name: Yashas Salankimatt
+    author_email: yashas.salankimatt@gmail.com
+    generated_timestamp: 1659925130

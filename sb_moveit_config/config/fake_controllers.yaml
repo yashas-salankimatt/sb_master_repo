@@ -1,0 +1,11 @@
+controller_list:
+  - name: fake_survivor_buddy_head_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - torso_joint
+      - neck_swivel
+      - head_tilt
+      - head_nod
+initial:  # Define initial robot poses per group
+  - group: survivor_buddy_head
+    pose: upright

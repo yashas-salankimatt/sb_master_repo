@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<launch>
+<!-- Launch file for the joint tester -->
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find survivorbuddy_ros)/urdf/survivorbuddy.urdf'"/>
+
+    <!-- ROSBridge for controlling through JS -->
+    <!-- <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" /> -->
+    <!-- TF Republisher for ROS3D -->
+    <!-- <node name="tf2_web_republisher" pkg="tf2_web_republisher" type="tf2_web_republisher" /> -->
+
+    <!-- Manual Joint Control -->
+    <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+
+    <!-- OLD python GUI -->
+    <!-- <node name="gui_controller" pkg="arm-kinematics" type="gui_controller.py" output="screen" /> -->
+    <!-- <node name="ik_test" pkg="arm-kinematics" type="ik_test" output="screen" /> -->
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+    <!-- Bare URDF Checking rviz launch -->
+    <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find arm-kinematics)/urdf/armv2.urdf" /> -->
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find survivorbuddy_ros)/rviz/urdf_test.rviz"/>
+
+</launch>
+

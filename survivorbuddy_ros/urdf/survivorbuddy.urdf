@@ -1,0 +1,197 @@
+<?xml version="1.0" ?>
+<robot name="survivor_buddy">
+    <!-- JOINTS- KINEMATIC DATA -->
+    <joint name="base_fixed" type="fixed">
+        <origin xyz="-0.035 -0.033 0.0" rpy="0.0 0.0 0.0" />
+        <parent link="base_dummy" />
+        <child link="base" />
+        <axis xyz="0.0 0.0 0.0" />
+        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0" />
+    </joint>
+    <joint name="torso_joint" type="revolute">
+        <origin xyz="0.0 0.033 .056" rpy="0.0 0.0 0.0" />
+        <parent link="base" />
+        <child link="torso" />
+        <axis xyz="1 0.0 0.0" />
+        <limit lower="-1.57" upper="1.2" effort="0.0" velocity="0.0" />
+    </joint>
+    <joint name="neck_swivel" type="revolute">
+        <origin xyz="0.035 0 0.0" rpy="0.0 0.0 0.0" />
+        <parent link="torso" />
+        <child link="neck" />
+        <axis xyz="0.0 0.0 1" />
+        <limit lower="-1.57" upper="1.57" effort="0.0" velocity="0.0" />
+    </joint>
+    <joint name="head_tilt" type="revolute">
+        <origin xyz="0.0 0.0 0.15" rpy="0.0 0.0 0.0" />
+        <parent link="neck" />
+        <child link="head" />
+        <axis xyz="0.0 1 0.0" />
+        <limit lower="-1.57" upper="1.57" effort="0.0" velocity="0.0" />
+    </joint>
+    <joint name="head_nod" type="revolute">
+        <origin xyz="0.0 -0.049 0" rpy="0.0 0.0 0.0" />
+        <parent link="head" />
+        <child link="phonemount" />
+        <axis xyz="1 0 0.0" />
+        <limit lower="-.7" upper=".7" effort="0.0" velocity="0.0" />
+    </joint>
+    <!-- LINKS- INERTIAL DATA -->
+    <link name="base_dummy" />
+    <link name="base">
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <mass value="0.0" />
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+        </inertial>
+        <visual name="">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/visual/base.stl" />
+            </geometry>
+            <material name="">
+                <color rgba="0.6 0.2 0.9 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/collision/base.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="torso">
+        <inertial>
+            <origin xyz="0.0 -0.033 -.056" rpy="0.0 0.0 0.0" />
+            <mass value="0.0" />
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+        </inertial>
+        <visual name="">
+            <origin xyz="0.0 -0.033 -.056" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/visual/torso.stl" />
+            </geometry>
+            <material name="">
+                <color rgba="0.6 0.2 0.9 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0 -0.033 -.056" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/collision/torso.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="neck">
+        <inertial>
+            <origin xyz="-0.035 -0.033 -0.056" rpy="0.0 0.0 0.0" />
+            <mass value="0.0" />
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+        </inertial>
+        <visual name="">
+            <origin xyz="-0.035 -0.033 -0.056" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/visual/neck.stl" />
+            </geometry>
+            <material name="">
+                <color rgba="0.6 0.2 0.9 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-0.035 -0.033 -0.056" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/collision/neck.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="head">
+        <inertial>
+            <origin xyz="-0.035 -0.033 -0.206" rpy="0.0 0.0 0.0" />
+            <mass value="0.0" />
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+        </inertial>
+        <visual name="">
+            <origin xyz="-0.035 -0.033 -0.206" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/visual/head.stl" />
+            </geometry>
+            <material name="">
+                <color rgba="0.6 0.2 0.9 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-0.035 -0.033 -0.206" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/collision/head.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="phonemount">
+        <inertial>
+            <origin xyz="-0.035 0.016 -0.206" rpy="0.0 0.0 0.0" />
+            <mass value="0.0" />
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+        </inertial>
+        <visual name="">
+            <origin xyz="-0.035 0.016 -0.206" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/visual/phonemount-new.stl" />
+            </geometry>
+            <material name="">
+                <color rgba="0.6 0.2 0.9 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-0.035 0.016 -0.206" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/collision/phonemount-new.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <transmission name="trans_torso_joint">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="torso_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="torso_joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_neck_swivel">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="neck_swivel">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="neck_swivel_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_head_tilt">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="head_tilt">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="head_tilt_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_head_nod">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="head_nod">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="head_nod_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <gazebo>
+        <plugin name="gazebo_ros_control">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+</robot>
+
