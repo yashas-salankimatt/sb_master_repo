@@ -60,7 +60,7 @@ catkin_make
 
 To make sure that the package will always sourced when launching a new terminal, run
 
-````sh
+```sh
 echo 'source ~/catkin_ws/devel/setup.bash' >> ~/.bashrc
 ```
 
@@ -76,7 +76,7 @@ To test your implementation, run
 
 ```sh
 python lab_1_reflexes.py
-````
+```
 
 and you should see `"Noise detected"` being logged into the terminal when a lound noise is detected.
 
