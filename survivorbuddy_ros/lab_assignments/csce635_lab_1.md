@@ -51,7 +51,13 @@ Make sure you have ROS Noetic, and MoveIt installed and working. You'll also nee
 mkdir -p ~/catkin_ws/src
 ```
 
-Next, clone [this repository](https://github.com/yashas-salankimatt/sb_master_repo.git) and add it under `~/catkin_ws/src`. This is a ROS package for interfacing with `SB` that has already been created for you. To build the package, run
+Next, clone [this repository](https://github.com/yashas-salankimatt/sb_master_repo.git) with this command
+
+```sh
+git clone https://github.com/yashas-salankimatt/sb_master_repo.git --recurse-submodules
+```
+
+and add it under `~/catkin_ws/src`. This is a ROS package for interfacing with `SB` that has already been created for you. To build the package, run
 
 ```sh
 cd ~/catkin_ws/
