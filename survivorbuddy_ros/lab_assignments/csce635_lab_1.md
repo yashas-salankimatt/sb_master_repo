@@ -76,19 +76,19 @@ In order to detect a clap/loud noise, you will need to use an audio sensor (mic)
 
 > Note: You may either launch the web app on your laptop or your phone (currently only works without glitch on Android). The mic on that device would act as the sensor to detect a clap/loud noise.
 
-Once, the sensor is set up, add your implementation of the noise detection logic within `detect_noise()` in the space below `"YOUR CODE HERE"` in `lab_1_reflexes.py`. Note that `detect_noise()` should return a boolean value that is `True` if an `ALERT` is detected and `False` if otherwise.
+Once, the sensor is set up, add your implementation of the noise detection logic within `detect_noise()` in the space below `"YOUR CODE HERE"` in `lab_1.py`. Note that `detect_noise()` should return a boolean value that is `True` if an `ALERT` is detected and `False` if otherwise.
 
 To test your implementation, run
 
 ```sh
-python lab_1_reflexes.py
+python lab_1.py
 ```
 
 and you should see `"Noise detected"` being logged into the terminal when a lound noise is detected.
 
 ### Step 2: Execute behavior in MoveIt
 
-Next, you need to program a "startle" behavior when an `ALERT` is detected. Once, the sensor is set up, add your code that executes your desired behavior `execute_behavior()` in the space below `"YOUR CODE HERE"` in `lab_1_reflexes.py`. This is based on the Move Group Interface and for more details, you may refer to [this tutorial](https://ros-planning.github.io/moveit_tutorials/doc/move_group_python_interface/move_group_python_interface_tutorial.html).
+Next, you need to program a "startle" behavior when an `ALERT` is detected. Once, the sensor is set up, add your code that executes your desired behavior `execute_behavior()` in the space below `"YOUR CODE HERE"` in `lab_1.py`. This is based on the Move Group Interface and for more details, you may refer to [this tutorial](https://ros-planning.github.io/moveit_tutorials/doc/move_group_python_interface/move_group_python_interface_tutorial.html).
 
 > Note: You're free to modify the starter code provided within `execute_behavior()` to create your own custom behaviors.
 
@@ -101,7 +101,7 @@ roslaunch sb_moveit_config demo.launch
 Once you have programmed your desired behavior in `execute_behavior()`, to test your behavior run
 
 ```python
-python lab_1_reflexes.py
+python lab_1.py
 ```
 
 and you can see the behavior being executed in `MoveIt`.
@@ -117,7 +117,7 @@ Follow the instructions at [this repository](https://github.com/yashas-salankima
 Once you confirm that the interfacing has been successful, run your code
 
 ```python
-python lab_1_reflexes.py
+python lab_1.py
 ```
 
 and record a video of you clapping/making a loud noise and SB executing the "Startle" behavior.
@@ -131,4 +131,4 @@ In order for your submission to be eligible for grading
 
 ## Submission
 
-To submit the assignment, please upload the following files to **Canvas -> Assignments -> Programming lab 1**: your script named `lab_1_reflexes.py`, a `video.txt` file containing a link to the demo video, and a `instructions.txt` file containing instructions on how to run your code if it other than running `python lab_1_reflexes.py` (e.g. if you adapted your code to accept inputs from the command line). Please upload the files in a single zip file named **<your UIN>.zip**.
+To submit the assignment, please upload the following files to **Canvas -> Assignments -> Programming lab 1**: your script named `lab_1.py`, a `video.txt` file containing a link to the demo video, and a `instructions.txt` file containing instructions on how to run your code if it other than running `python lab_1.py` (e.g. if you adapted your code to accept inputs from the command line). Please upload the files in a single zip file named **<your UIN>.zip**.
