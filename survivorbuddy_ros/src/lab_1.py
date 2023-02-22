@@ -27,73 +27,121 @@ from std_msgs.msg import String
 from moveit_commander.conversions import pose_to_list
 
 
-def startle_callback(data):
-    """
-    Callback that implements the startle behavior.
-    """
-    if detect_noise(data):
-        execute_behavior()
+# parameters
+RATE = 10 # ROS looping rate
 
 
-def detect_noise(data):
-    """
-    The perceptual schema.
-    Args:
-        data: audio data.
-    Return:
-        bool: alert
-    """
-    alert = False
-    ##################
-    # YOUR CODE HERE #
-    ##################
+class SchemaSB:
+    def __init__(self, rate=RATE) -> None:
+        """
+        Inititialize Schema for SurvivorBuddy object
+        Args:
+            rate: int
+                ROS rate, default = RATE
+        Return:
+            None
+        """
+        self.rate = rospy.Rate(RATE)
 
-    return alert
+        self.audio_data = None
+        self.pub = rospy.Publisher(
+            "/move_group/display_planned_path", DisplayTrajectory, queue_size=20
+        )
+        self.sub = rospy.Subscriber(
+            "/audio", Float32MultiArray, callback=self.audio_callback,
+            queue_size=1
+        )
+
+        self.robot = moveit_commander.RobotCommander()
+        self.scene = moveit_commander.PlanningSceneInterface()
+        group_name = "survivor_buddy_head"
+        self.move_group = moveit_commander.MoveGroupCommander(group_name)
 
 
-def execute_behavior():
-    """
-    The motor schema.
-    Args:
-        alert (bool): ALERT signal.
-    """
-    robot = moveit_commander.RobotCommander()
-    scene = moveit_commander.PlanningSceneInterface()
+    def audio_callback(self, data):
+        """
+        Callback for audio.
+        Args:
+            data : Float32MultiArray
+                audio data from mic
+        Return:
+            None
+        """
+        self.audio_data = data.data
 
-    group_name = "survivor_buddy_head"
-    move_group = moveit_commander.MoveGroupCommander(group_name)
 
-    # joint value planning
-    joint_goal = move_group.get_current_joint_values()
-    ##################################
-    # YOUR CODE HERE                 #
-    # You may modify the lines below #
-    ##################################
-    joint_goal[0] =  # Enter a value
-    joint_goal[1] =  # Enter a value
-    joint_goal[2] =  # Enter a value
-    joint_goal[3] =  # Enter a value
+    def detect_noise(self):
+        """
+        The perceptual schema.
+        Args:
+            None
+        Return:
+            alert : bool
+                whether an alert was detected
+        """
+        alert = False
+        ##################
+        # YOUR CODE HERE #
+        ##################
 
-    move_group.go(joint_goal, wait=True)
-    plan = move_group.plan()
-    move_group.stop()
+        return alert
 
-    display_trajectory = DisplayTrajectory()
-    display_trajectory.trajectory_start = robot.get_current_state()
-    pub.publish(display_trajectory)
 
-    # execute plan
-    move_group.execute(plan[1], wait=True)
+    def execute_behavior(self):
+        """
+        The motor schema.
+        Args:
+            None
+        Return:
+            None
+        """
+
+        # joint value planning
+        joint_goal = self.move_group.get_current_joint_values()
+        ##################################
+        # YOUR CODE HERE                 #
+        # You may modify the lines below #
+        ##################################
+
+        joint_goal[0] =  # Enter a value
+        joint_goal[1] =  # Enter a value
+        joint_goal[2] =  # Enter a value
+        joint_goal[3] =  # Enter a value
+
+        # Either use move_group.go or use plan and execute, not both
+        # self.move_group.go(joint_goal, wait=True)
+
+        plan = self.move_group.plan(joint_goal)
+
+        display_trajectory = DisplayTrajectory()
+        display_trajectory.trajectory_start = self.robot.get_current_state()
+        display_trajectory.trajectory.append(plan[1])
+        self.pub.publish(display_trajectory)
+
+        # execute plan
+        self.move_group.execute(plan[1], wait=True)
+        self.move_group.stop()
+
+
+    def startle_loop(self):
+        """
+        Implement the startle behavior.
+        Args:
+            None
+        Return:
+            None
+        """
+        while not rospy.is_shutdown(): # loop until ROS node is shutdown
+            if self.detect_noise():
+                self.execute_behavior()
+            self.rate.sleep() # delay sufficiently to maintain the ROS rate
 
 
 if __name__ == "__main__":
     rospy.init_node("lab_1_node", anonymous=False)
     moveit_commander.roscpp_initialize(sys.argv)
-
-    pub = rospy.Publisher(
-        "/move_group/display_planned_path", DisplayTrajectory, queue_size=20
-    )
-    sub = rospy.Subscriber("/audio", Float32MultiArray, callback=startle_callback)
+    
     rospy.loginfo("Node started.")
 
-    rospy.spin()
+    schema_sb = SchemaSB()
+    schema_sb.startle_loop()
