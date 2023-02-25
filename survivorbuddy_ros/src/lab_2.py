@@ -36,7 +36,7 @@ class GenericBehavior(object):
             "/move_group/display_planned_path", DisplayTrajectory, queue_size=20
         )
         self.audio_sub = rospy.Subscriber("/audio", Float32MultiArray, callback=self.callback_1, queue_size=1)
-        self.camera_sub = rospy.Subscriber("/camera/image/compressed", Float32MultiArray, callback=self.callback_2, queue_size=1)
+        self.camera_sub = rospy.Subscriber("/camera/image/compressed", CompressedImage, callback=self.callback_2, queue_size=1)
         rospy.loginfo("Node started.")
 
         self.robot = moveit_commander.RobotCommander()
