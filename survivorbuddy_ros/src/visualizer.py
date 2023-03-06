@@ -27,6 +27,7 @@ import numpy as np
 
 # Initialize the figure and axis objects
 fig, ax = plt.subplots()
+ax.set_ylim(-3, 3)
 bars = ax.bar(range(2048), [0] * 2048)
 
 # Define a callback function to receive the data from the rostopic
