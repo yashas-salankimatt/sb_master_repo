@@ -15,7 +15,8 @@ def degrees(x):
 def main():
     print("Joint positions are in degrees and input needs to be in the following order: ")
     print("robot_num joint1 joint2 joint3 joint4\n")
-    print("ex. 0 30 15 0 0      # joints = 30, 15, 0, 0 for robot = 0\n")
+    print("ex. 0 30 15 0 0      # joints = 30, 15, 0, 0 for robot = 0")
+    print("using 'a' for robot_num will send the joint positions to all robots\n")
     print("Enter 'q' or 'quit' or 'exit' to quit\n")
     publishers = []
     for i in range(4):
