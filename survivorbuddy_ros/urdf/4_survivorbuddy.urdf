@@ -1,0 +1,629 @@
+<?xml version="1.0" ?>
+<robot name="survivor_buddy">
+    <!-- =======================SB 0================================== -->
+    <!-- JOINTS- KINEMATIC DATA -->
+    <joint name="sb_to_world_0" type="fixed" >
+        <origin xyz="0 0 0" rpy="0 0 0"/>   <!-- CHANGE THIS LINE -->
+        <parent link="world" />
+        <child link="base_dummy_0" />
+        <axis xyz="0.0 0.0 0.0" />
+        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0" />
+    </joint>
+    <joint name="base_fixed_0" type="fixed">
+        <origin xyz="-0.035 -0.033 0.0" rpy="0.0 0.0 0.0" />
+        <parent link="base_dummy_0" />
+        <child link="base_0" />
+        <axis xyz="0.0 0.0 0.0" />
+        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0" />
+    </joint>
+    <joint name="torso_joint_0" type="revolute">
+        <origin xyz="0.0 0.033 .056" rpy="0.0 0.0 0.0" />
+        <parent link="base_0" />
+        <child link="torso_0" />
+        <axis xyz="1 0.0 0.0" />
+        <limit lower="-1.57" upper="1.2" effort="0.0" velocity="0.0" />
+    </joint>
+    <joint name="neck_swivel_0" type="revolute">
+        <origin xyz="0.035 0 0.0" rpy="0.0 0.0 0.0" />
+        <parent link="torso_0" />
+        <child link="neck_0" />
+        <axis xyz="0.0 0.0 1" />
+        <limit lower="-1.57" upper="1.57" effort="0.0" velocity="0.0" />
+    </joint>
+    <joint name="head_tilt_0" type="revolute">
+        <origin xyz="0.0 0.0 0.15" rpy="0.0 0.0 0.0" />
+        <parent link="neck_0" />
+        <child link="head_0" />
+        <axis xyz="0.0 1 0.0" />
+        <limit lower="-1.57" upper="1.57" effort="0.0" velocity="0.0" />
+    </joint>
+    <joint name="head_nod_0" type="revolute">
+        <origin xyz="0.0 -0.049 0" rpy="0.0 0.0 0.0" />
+        <parent link="head_0" />
+        <child link="phonemount_0" />
+        <axis xyz="1 0 0.0" />
+        <limit lower="-.7" upper=".7" effort="0.0" velocity="0.0" />
+    </joint>
+    <!-- LINKS- INERTIAL DATA -->
+    <link name="world" />
+    <link name="base_dummy_0" />
+    <link name="base_0">
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <mass value="0.0" />
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+        </inertial>
+        <visual name="">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/visual/base.stl" />
+            </geometry>
+            <material name="">
+                <color rgba="0.6 0.2 0.9 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/collision/base.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="torso_0">
+        <inertial>
+            <origin xyz="0.0 -0.033 -.056" rpy="0.0 0.0 0.0" />
+            <mass value="0.0" />
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+        </inertial>
+        <visual name="">
+            <origin xyz="0.0 -0.033 -.056" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/visual/torso.stl" />
+            </geometry>
+            <material name="">
+                <color rgba="0.6 0.2 0.9 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0 -0.033 -.056" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/collision/torso.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="neck_0">
+        <inertial>
+            <origin xyz="-0.035 -0.033 -0.056" rpy="0.0 0.0 0.0" />
+            <mass value="0.0" />
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+        </inertial>
+        <visual name="">
+            <origin xyz="-0.035 -0.033 -0.056" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/visual/neck.stl" />
+            </geometry>
+            <material name="">
+                <color rgba="0.6 0.2 0.9 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-0.035 -0.033 -0.056" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/collision/neck.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="head_0">
+        <inertial>
+            <origin xyz="-0.035 -0.033 -0.206" rpy="0.0 0.0 0.0" />
+            <mass value="0.0" />
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+        </inertial>
+        <visual name="">
+            <origin xyz="-0.035 -0.033 -0.206" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/visual/head.stl" />
+            </geometry>
+            <material name="">
+                <color rgba="0.6 0.2 0.9 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-0.035 -0.033 -0.206" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/collision/head.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="phonemount_0">
+        <inertial>
+            <origin xyz="-0.035 0.016 -0.206" rpy="0.0 0.0 0.0" />
+            <mass value="0.0" />
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+        </inertial>
+        <visual name="">
+            <origin xyz="-0.035 0.016 -0.206" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/visual/phonemount-new.stl" />
+            </geometry>
+            <material name="">
+                <color rgba="0.6 0.2 0.9 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-0.035 0.016 -0.206" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/collision/phonemount-new.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <!-- =======================SB 1================================== -->
+    <!-- JOINTS- KINEMATIC DATA -->
+    <joint name="sb_to_world_1" type="fixed" >
+        <origin xyz=".25 0 0" rpy="0 0 0"/>  <!-- CHANGE THIS LINE -->
+        <parent link="world" />
+        <child link="base_dummy_1" />
+        <axis xyz="0.0 0.0 0.0" />
+        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0" />
+    </joint>
+    <joint name="base_fixed_1" type="fixed">
+        <origin xyz="-0.035 -0.033 0.0" rpy="0.0 0.0 0.0" />
+        <parent link="base_dummy_1" />
+        <child link="base_1" />
+        <axis xyz="0.0 0.0 0.0" />
+        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0" />
+    </joint>
+    <joint name="torso_joint_1" type="revolute">
+        <origin xyz="0.0 0.033 .056" rpy="0.0 0.0 0.0" />
+        <parent link="base_1" />
+        <child link="torso_1" />
+        <axis xyz="1 0.0 0.0" />
+        <limit lower="-1.57" upper="1.2" effort="0.0" velocity="0.0" />
+    </joint>
+    <joint name="neck_swivel_1" type="revolute">
+        <origin xyz="0.035 0 0.0" rpy="0.0 0.0 0.0" />
+        <parent link="torso_1" />
+        <child link="neck_1" />
+        <axis xyz="0.0 0.0 1" />
+        <limit lower="-1.57" upper="1.57" effort="0.0" velocity="0.0" />
+    </joint>
+    <joint name="head_tilt_1" type="revolute">
+        <origin xyz="0.0 0.0 0.15" rpy="0.0 0.0 0.0" />
+        <parent link="neck_1" />
+        <child link="head_1" />
+        <axis xyz="0.0 1 0.0" />
+        <limit lower="-1.57" upper="1.57" effort="0.0" velocity="0.0" />
+    </joint>
+    <joint name="head_nod_1" type="revolute">
+        <origin xyz="0.0 -0.049 0" rpy="0.0 0.0 0.0" />
+        <parent link="head_1" />
+        <child link="phonemount_1" />
+        <axis xyz="1 0 0.0" />
+        <limit lower="-.7" upper=".7" effort="0.0" velocity="0.0" />
+    </joint>
+    <!-- LINKS- INERTIAL DATA -->
+    <link name="base_dummy_1" />
+    <link name="base_1">
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <mass value="0.0" />
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+        </inertial>
+        <visual name="">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/visual/base.stl" />
+            </geometry>
+            <material name="">
+                <color rgba="0.6 0.2 0.9 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/collision/base.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="torso_1">
+        <inertial>
+            <origin xyz="0.0 -0.033 -.056" rpy="0.0 0.0 0.0" />
+            <mass value="0.0" />
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+        </inertial>
+        <visual name="">
+            <origin xyz="0.0 -0.033 -.056" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/visual/torso.stl" />
+            </geometry>
+            <material name="">
+                <color rgba="0.6 0.2 0.9 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0 -0.033 -.056" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/collision/torso.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="neck_1">
+        <inertial>
+            <origin xyz="-0.035 -0.033 -0.056" rpy="0.0 0.0 0.0" />
+            <mass value="0.0" />
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+        </inertial>
+        <visual name="">
+            <origin xyz="-0.035 -0.033 -0.056" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/visual/neck.stl" />
+            </geometry>
+            <material name="">
+                <color rgba="0.6 0.2 0.9 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-0.035 -0.033 -0.056" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/collision/neck.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="head_1">
+        <inertial>
+            <origin xyz="-0.035 -0.033 -0.206" rpy="0.0 0.0 0.0" />
+            <mass value="0.0" />
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+        </inertial>
+        <visual name="">
+            <origin xyz="-0.035 -0.033 -0.206" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/visual/head.stl" />
+            </geometry>
+            <material name="">
+                <color rgba="0.6 0.2 0.9 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-0.035 -0.033 -0.206" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/collision/head.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="phonemount_1">
+        <inertial>
+            <origin xyz="-0.035 0.016 -0.206" rpy="0.0 0.0 0.0" />
+            <mass value="0.0" />
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+        </inertial>
+        <visual name="">
+            <origin xyz="-0.035 0.016 -0.206" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/visual/phonemount-new.stl" />
+            </geometry>
+            <material name="">
+                <color rgba="0.6 0.2 0.9 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-0.035 0.016 -0.206" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/collision/phonemount-new.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <!-- =======================SB 2================================== -->
+    <!-- JOINTS- KINEMATIC DATA -->
+    <joint name="sb_to_world_2" type="fixed" >
+        <origin xyz=".5 0 0" rpy="0 0 0"/>  <!-- CHANGE THIS LINE -->
+        <parent link="world" />
+        <child link="base_dummy_2" />
+        <axis xyz="0.0 0.0 0.0" />
+        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0" />
+    </joint>
+    <joint name="base_fixed_2" type="fixed">
+        <origin xyz="-0.035 -0.033 0.0" rpy="0.0 0.0 0.0" />
+        <parent link="base_dummy_2" />
+        <child link="base_2" />
+        <axis xyz="0.0 0.0 0.0" />
+        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0" />
+    </joint>
+    <joint name="torso_joint_2" type="revolute">
+        <origin xyz="0.0 0.033 .056" rpy="0.0 0.0 0.0" />
+        <parent link="base_2" />
+        <child link="torso_2" />
+        <axis xyz="1 0.0 0.0" />
+        <limit lower="-1.57" upper="1.2" effort="0.0" velocity="0.0" />
+    </joint>
+    <joint name="neck_swivel_2" type="revolute">
+        <origin xyz="0.035 0 0.0" rpy="0.0 0.0 0.0" />
+        <parent link="torso_2" />
+        <child link="neck_2" />
+        <axis xyz="0.0 0.0 1" />
+        <limit lower="-1.57" upper="1.57" effort="0.0" velocity="0.0" />
+    </joint>
+    <joint name="head_tilt_2" type="revolute">
+        <origin xyz="0.0 0.0 0.15" rpy="0.0 0.0 0.0" />
+        <parent link="neck_2" />
+        <child link="head_2" />
+        <axis xyz="0.0 1 0.0" />
+        <limit lower="-1.57" upper="1.57" effort="0.0" velocity="0.0" />
+    </joint>
+    <joint name="head_nod_2" type="revolute">
+        <origin xyz="0.0 -0.049 0" rpy="0.0 0.0 0.0" />
+        <parent link="head_2" />
+        <child link="phonemount_2" />
+        <axis xyz="1 0 0.0" />
+        <limit lower="-.7" upper=".7" effort="0.0" velocity="0.0" />
+    </joint>
+    <!-- LINKS- INERTIAL DATA -->
+    <link name="base_dummy_2" />
+    <link name="base_2">
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <mass value="0.0" />
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+        </inertial>
+        <visual name="">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/visual/base.stl" />
+            </geometry>
+            <material name="">
+                <color rgba="0.6 0.2 0.9 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/collision/base.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="torso_2">
+        <inertial>
+            <origin xyz="0.0 -0.033 -.056" rpy="0.0 0.0 0.0" />
+            <mass value="0.0" />
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+        </inertial>
+        <visual name="">
+            <origin xyz="0.0 -0.033 -.056" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/visual/torso.stl" />
+            </geometry>
+            <material name="">
+                <color rgba="0.6 0.2 0.9 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0 -0.033 -.056" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/collision/torso.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="neck_2">
+        <inertial>
+            <origin xyz="-0.035 -0.033 -0.056" rpy="0.0 0.0 0.0" />
+            <mass value="0.0" />
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+        </inertial>
+        <visual name="">
+            <origin xyz="-0.035 -0.033 -0.056" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/visual/neck.stl" />
+            </geometry>
+            <material name="">
+                <color rgba="0.6 0.2 0.9 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-0.035 -0.033 -0.056" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/collision/neck.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="head_2">
+        <inertial>
+            <origin xyz="-0.035 -0.033 -0.206" rpy="0.0 0.0 0.0" />
+            <mass value="0.0" />
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+        </inertial>
+        <visual name="">
+            <origin xyz="-0.035 -0.033 -0.206" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/visual/head.stl" />
+            </geometry>
+            <material name="">
+                <color rgba="0.6 0.2 0.9 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-0.035 -0.033 -0.206" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/collision/head.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="phonemount_2">
+        <inertial>
+            <origin xyz="-0.035 0.016 -0.206" rpy="0.0 0.0 0.0" />
+            <mass value="0.0" />
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+        </inertial>
+        <visual name="">
+            <origin xyz="-0.035 0.016 -0.206" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/visual/phonemount-new.stl" />
+            </geometry>
+            <material name="">
+                <color rgba="0.6 0.2 0.9 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-0.035 0.016 -0.206" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/collision/phonemount-new.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <!-- =======================SB 3================================== -->
+    <!-- JOINTS- KINEMATIC DATA -->
+    <joint name="sb_to_world_3" type="fixed" >
+        <origin xyz=".75 0 0" rpy="0 0 0"/> <!-- CHANGE THIS LINE -->
+        <parent link="world" />
+        <child link="base_dummy_3" />
+        <axis xyz="0.0 0.0 0.0" />
+        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0" />
+    </joint>
+    <joint name="base_fixed_3" type="fixed">
+        <origin xyz="-0.035 -0.033 0.0" rpy="0.0 0.0 0.0" />
+        <parent link="base_dummy_3" />
+        <child link="base_3" />
+        <axis xyz="0.0 0.0 0.0" />
+        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0" />
+    </joint>
+    <joint name="torso_joint_3" type="revolute">
+        <origin xyz="0.0 0.033 .056" rpy="0.0 0.0 0.0" />
+        <parent link="base_3" />
+        <child link="torso_3" />
+        <axis xyz="1 0.0 0.0" />
+        <limit lower="-1.57" upper="1.2" effort="0.0" velocity="0.0" />
+    </joint>
+    <joint name="neck_swivel_3" type="revolute">
+        <origin xyz="0.035 0 0.0" rpy="0.0 0.0 0.0" />
+        <parent link="torso_3" />
+        <child link="neck_3" />
+        <axis xyz="0.0 0.0 1" />
+        <limit lower="-1.57" upper="1.57" effort="0.0" velocity="0.0" />
+    </joint>
+    <joint name="head_tilt_3" type="revolute">
+        <origin xyz="0.0 0.0 0.15" rpy="0.0 0.0 0.0" />
+        <parent link="neck_3" />
+        <child link="head_3" />
+        <axis xyz="0.0 1 0.0" />
+        <limit lower="-1.57" upper="1.57" effort="0.0" velocity="0.0" />
+    </joint>
+    <joint name="head_nod_3" type="revolute">
+        <origin xyz="0.0 -0.049 0" rpy="0.0 0.0 0.0" />
+        <parent link="head_3" />
+        <child link="phonemount_3" />
+        <axis xyz="1 0 0.0" />
+        <limit lower="-.7" upper=".7" effort="0.0" velocity="0.0" />
+    </joint>
+    <!-- LINKS- INERTIAL DATA -->
+    <link name="base_dummy_3" />
+    <link name="base_3">
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <mass value="0.0" />
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+        </inertial>
+        <visual name="">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/visual/base.stl" />
+            </geometry>
+            <material name="">
+                <color rgba="0.6 0.2 0.9 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/collision/base.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="torso_3">
+        <inertial>
+            <origin xyz="0.0 -0.033 -.056" rpy="0.0 0.0 0.0" />
+            <mass value="0.0" />
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+        </inertial>
+        <visual name="">
+            <origin xyz="0.0 -0.033 -.056" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/visual/torso.stl" />
+            </geometry>
+            <material name="">
+                <color rgba="0.6 0.2 0.9 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0 -0.033 -.056" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/collision/torso.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="neck_3">
+        <inertial>
+            <origin xyz="-0.035 -0.033 -0.056" rpy="0.0 0.0 0.0" />
+            <mass value="0.0" />
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+        </inertial>
+        <visual name="">
+            <origin xyz="-0.035 -0.033 -0.056" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/visual/neck.stl" />
+            </geometry>
+            <material name="">
+                <color rgba="0.6 0.2 0.9 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-0.035 -0.033 -0.056" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/collision/neck.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="head_3">
+        <inertial>
+            <origin xyz="-0.035 -0.033 -0.206" rpy="0.0 0.0 0.0" />
+            <mass value="0.0" />
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+        </inertial>
+        <visual name="">
+            <origin xyz="-0.035 -0.033 -0.206" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/visual/head.stl" />
+            </geometry>
+            <material name="">
+                <color rgba="0.6 0.2 0.9 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-0.035 -0.033 -0.206" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/collision/head.stl" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="phonemount_3">
+        <inertial>
+            <origin xyz="-0.035 0.016 -0.206" rpy="0.0 0.0 0.0" />
+            <mass value="0.0" />
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+        </inertial>
+        <visual name="">
+            <origin xyz="-0.035 0.016 -0.206" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/visual/phonemount-new.stl" />
+            </geometry>
+            <material name="">
+                <color rgba="0.6 0.2 0.9 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-0.035 0.016 -0.206" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://survivorbuddy_ros/meshes/collision/phonemount-new.stl" />
+            </geometry>
+        </collision>
+    </link>
+</robot>
+
