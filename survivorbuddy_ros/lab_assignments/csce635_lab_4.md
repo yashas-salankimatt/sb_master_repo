@@ -17,7 +17,7 @@ The team decides on what type of MRS (multirobot system) to use, choose the song
 
 ## Extra credit (up to 25%)
 
-- Robustness: the "performance" still works if a robot is suddenly turned off.
+- Have the SBs perform to your head movements (headbobbing) to the song by using input from the camera feed. However, not all of them should mimic your head motions (try to be creative here).
 - Matching appropriate display on the phones.
 
 ### Things to keep in mind for the programmer
